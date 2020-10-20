@@ -5,20 +5,18 @@
 
 This repository contains a function with two methods to calculate the roots of an univariate function. The proposed solution follows the Newton's Method: 
 
-Starting with a $ x_0 $ guess, a function $ f(\cdot) $ and the first-derivative $ f'(\cdot) $, the algorithm is to repeat
+Starting with a guess `x_0`, a function `f(\cdot)` and the first-derivative  `f'(\cdot)` , the algorithm is to repeat
 
-$$
-x^{n+1} = x^n - \frac{f(x^n)}{f'(x^n)}
-$$
+`` x^{n+1} = x^n - \frac{f(x^n)}{f'(x^n)} ``
 
-until $ | x^{n+1} - x^n| $ is below a tolerance level previously defined. More information about the algorithm can be found [here](https://en.wikipedia.org/wiki/Newton's_method).
+until  `| x^{n+1} - x^n|`  is below a tolerance level previously defined. More information about the algorithm can be found [here](https://en.wikipedia.org/wiki/Newton's_method).
 
 
 ## Documentation
 The documentation of the program is:
 
 ```julia
-    newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
+newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
 ```
 
 This function computes the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with a  `x_0` guess, a function `f(x)` and the first-derivative  `f'(x)`. The algorithm follows: 
