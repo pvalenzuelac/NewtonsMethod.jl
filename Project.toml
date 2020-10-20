@@ -3,6 +3,9 @@ uuid = "49050283-b299-49d3-bcc6-1baa5eaaa4ed"
 authors = ["pvalenzuelac <pdvalenzuela@uc.cl> and contributors"]
 version = "0.1.0"
 
+[deps]
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+
 [compat]
 julia = "1"
 
