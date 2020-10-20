@@ -19,12 +19,17 @@ The documentation of the program is:
 
 ```julia
 
-                newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
+        newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
 ```
 
-This function computes the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with a  `x_0` guess, a function `f(x)` and the first-derivative  `f'(x)`. The algorithm follows: `` x^{n+1} = x^n - f(x^n)/f'(x^n) `` until `` |x^{n+1} - x^n|`` is below the tolerance level.
+This function computes the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with a  `x_0` guess, a function `f(x)` and the first-derivative  `f'(x)`. The algorithm follows: 
+
+```latex 
+x^{n+1} = x^n - f(x^n)/f'(x^n) 
+```
+
+until `` |x^{n+1} - x^n|`` is below the tolerance level.
  
-...
 ### Arguments
 - `f(x)::Function`: the function you are trying to solve.
 - `f'(x)::Function`: the first derivative of the function you are trying to solve. If it is not given the program estimate `f'(x)` using ForwardDiff.
