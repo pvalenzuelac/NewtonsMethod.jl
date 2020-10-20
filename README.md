@@ -18,8 +18,7 @@ until $ | x^{n+1} - x^n| $ is below a tolerance level previously defined. More i
 The documentation of the program is:
 
 ```julia
-
-        newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
+    newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
 ```
 
 This function computes the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with a  `x_0` guess, a function `f(x)` and the first-derivative  `f'(x)`. The algorithm follows: 

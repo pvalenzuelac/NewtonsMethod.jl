@@ -69,10 +69,10 @@ using Test
     @test BigFloat(NewtonsMethod.newtonroot(f; tolerance=1e-13)[1]) ≈ 2.0
 
 
-    # Breaking something on purpose:
-    f(x)  =  (x - 2)^2
-    df(x) = 2(x - 2)
-    @test NewtonsMethod.newtonroot(f, df)[1] ≈ 3
-    @test NewtonsMethod.newtonroot(f)[1]  ≈ 3 
+    # Breaking something on purpose: I present the result in the README.md
+    # f(x)  =  (x - 2)^2
+    # df(x) = 2(x - 2)
+    # @test NewtonsMethod.newtonroot(f, df)[1] ≈ 3
+    # @test NewtonsMethod.newtonroot(f)[1]  ≈ 3 
 
 end
