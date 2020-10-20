@@ -5,11 +5,11 @@
 
 This repository contains a function with two methods to calculate the roots of an univariate function. The proposed solution follows the Newton's Method: 
 
-Starting with a guess `x_0`, a function `f(\cdot)` and the first-derivative  `f'(\cdot)` , the algorithm is to repeat
+Starting with a guess `x_0`, a function `f(x)` and the first-derivative  `f'(x)`. The algorithm is to repeat
 
-`` x^{n+1} = x^n - \frac{f(x^n)}{f'(x^n)} ``
+`` x^{n+1} = x^n - f(x^n)/f'(x^n)``
 
-until  `| x^{n+1} - x^n|`  is below a tolerance level previously defined. More information about the algorithm can be found [here](https://en.wikipedia.org/wiki/Newton's_method).
+until `| x^{n+1} - x^n|` is below a tolerance level previously defined. More information about the algorithm can be found [here](https://en.wikipedia.org/wiki/Newton's_method).
 
 
 ## Documentation
