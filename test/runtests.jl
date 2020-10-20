@@ -7,20 +7,20 @@ using Test
         # f(x) = (x-2)^2, f'(x) = 2(x-2), root = 2
     f(x)  =  (x - 2)^2
     df(x) = 2(x - 2)
-    @test NewtonsMethod.newtonroot(f, df)[1] ≈ 2
-    @test NewtonsMethod.newtonroot(f)[1] ≈ 2
+    @test NewtonsMethod.newtonroot(f, df)[1] ≈ 2.0
+    @test NewtonsMethod.newtonroot(f)[1] ≈ 2.0
 
         # f(x) = (x-1)^7, f'(x) = 7(x-1)^6, root = 1
     f(x)  =  (x - 1)^7
     df(x) = 7(x - 1)^6
-    @test NewtonsMethod.newtonroot(f, df)[1] ≈ 1
-    @test NewtonsMethod.newtonroot(f)[1] ≈ 1
+    @test NewtonsMethod.newtonroot(f, df)[1] ≈ 1.0
+    @test NewtonsMethod.newtonroot(f)[1] ≈ 1.0
 
         # f(x) = log(x), f'(x) = 1/x, root = 1
     f(x)  =  log(x)
     df(x) = 1 / x
-    @test NewtonsMethod.newtonroot(f, df)[1] ≈ 1
-    @test NewtonsMethod.newtonroot(f)[1] ≈ 1
+    @test NewtonsMethod.newtonroot(f, df)[1] ≈ 1.0
+    @test NewtonsMethod.newtonroot(f)[1] ≈ 1.0
 
     # Testing a non-converging function
         # f(x) = x^2 +2, f'(x) = 2x
@@ -37,26 +37,26 @@ using Test
 
     f(x)  =  2x
     df(x) = 2
-    @test NewtonsMethod.newtonroot(f, df; maxiter=5)[1] ≈ 0
-    @test NewtonsMethod.newtonroot(f; maxiter=5)[1] ≈ 0
+    @test NewtonsMethod.newtonroot(f, df; maxiter=5)[1] ≈ 0.0
+    @test NewtonsMethod.newtonroot(f; maxiter=5)[1] ≈ 0.0
 
     # Testing the tolerance. I will choose a very slack tolerance (1e-4) in order to have a ``bad'' solution.
     f(x)  =  (x - 2)^2
     df(x) = 2(x - 2)
-    @test !(NewtonsMethod.newtonroot(f, df; tolerance=1e-4)[1] ≈ 2)
-    @test !(NewtonsMethod.newtonroot(f; tolerance=1e-4)[1]  ≈ 2)
+    @test !(NewtonsMethod.newtonroot(f, df; tolerance=1e-4)[1] ≈ 2.0)
+    @test !(NewtonsMethod.newtonroot(f; tolerance=1e-4)[1]  ≈ 2.0)
 
     f(x)  =  2x
     df(x) = 2
-    @test NewtonsMethod.newtonroot(f, df; maxiter=5)[1] ≈ 0
-    @test NewtonsMethod.newtonroot(f; maxiter=5)[1] ≈ 0
+    @test NewtonsMethod.newtonroot(f, df; maxiter=5)[1] ≈ 0.0
+    @test NewtonsMethod.newtonroot(f; maxiter=5)[1] ≈ 0.0
 
     # Testing the initial value.
     f(x)  =  (x - 2)^2
     df(x) = 2(x - 2)
-    @test NewtonsMethod.newtonroot(f, df; x0=10)[1] ≈ 2 # x0 = 10
-    @test NewtonsMethod.newtonroot(f, df; x0=-10)[1] ≈ 2 # x0 = -10
-    @test NewtonsMethod.newtonroot(f, df; x0=0)[1] ≈ 2 # x0 = 0
+    @test NewtonsMethod.newtonroot(f, df; x0=10)[1] ≈ 2.0 # x0 = 10
+    @test NewtonsMethod.newtonroot(f, df; x0=-10)[1] ≈ 2.0 # x0 = -10
+    @test NewtonsMethod.newtonroot(f, df; x0=0)[1] ≈ 2.0 # x0 = 0
 
     @test NewtonsMethod.newtonroot(f; x0=10)[1]  ≈ 2 # x0 = 10
     @test NewtonsMethod.newtonroot(f; x0=-10)[1]  ≈ 2 # x0 = -10
@@ -65,8 +65,8 @@ using Test
     # Testing BigFloat.
     f(x)  =  (x - 2)^2
     df(x) = 2(x - 2)
-    @test BigFloat(NewtonsMethod.newtonroot(f, df)[1]) ≈ BigFloat(2.0)
-    @test BigFloat(NewtonsMethod.newtonroot(f; tolerance=1e-13)[1]) ≈ 2
+    @test BigFloat(NewtonsMethod.newtonroot(f, df)[1]) ≈ 2.0
+    @test BigFloat(NewtonsMethod.newtonroot(f; tolerance=1e-13)[1]) ≈ 2.0
 
 
     # Breaking something on purpose:
