@@ -1,5 +1,3 @@
-using ForwardDiff
-using LinearAlgebra
 
 function newtonroot(f, f_prime; x0=0.8, tolerance=1.0E-13, maxiter=1000)
     # Initial values
@@ -8,18 +6,21 @@ function newtonroot(f, f_prime; x0=0.8, tolerance=1.0E-13, maxiter=1000)
     iter = 1
     
     # Running the algorithm 
-    if (iter < maxiter)
-        while (normdiff > tolerance) && (iter < maxiter)
+    while (normdiff > tolerance)  && (iter < maxiter)
+        if !(f_prime(v_old) == 0)
             v_new = v_old - (f(v_old) / f_prime(v_old))
             normdiff = norm(v_new - v_old)
-
             # replace and continue
             v_old = v_new
             iter = iter + 1
+        else
+            return(value = nothing, normdiff = nothing, iter = nothing)
         end
+    end
+    if (iter < maxiter)
         return(value = v_old, normdiff = normdiff, iter = iter)
     else
-        return nothing
+        return(value = nothing, normdiff = nothing, iter = nothing)
     end
 end
 
@@ -36,17 +37,21 @@ function newtonroot(f; x0=0.8, tolerance=1.0E-13, maxiter=1000)
     f_prime = D(f)
 
     # Running the algorithm 
-    if (iter < maxiter)
-        while (normdiff > tolerance)  
+
+    while (normdiff > tolerance)  && (iter < maxiter)
+        if !(f_prime(v_old) == 0)
             v_new = v_old - (f(v_old) / f_prime(v_old))
             normdiff = norm(v_new - v_old)
-
             # replace and continue
             v_old = v_new
             iter = iter + 1
+        else
+            return(value = nothing, normdiff = nothing, iter = nothing)
         end
+    end
+    if (iter < maxiter)
         return(value = v_old, normdiff = normdiff, iter = iter)
     else
-        return nothing
+        return(value = nothing, normdiff = nothing, iter = nothing)
     end
 end
