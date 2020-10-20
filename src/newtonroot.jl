@@ -1,21 +1,21 @@
 
 """
-newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
-This function find the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with    Starting with an $$ x_0 $$ guess, a function $$ f(\cdot) $$ and the first-derivative $$ f'(\cdot) $$, the algorithm is to repeat
 
-    $$
-    x^{n+1} = x^n - \frac{f(x^n)}{f'(x^n)}
-    $$
+                newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
+
+
+This function computes the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with a  `x_0` guess, a function `f(x)` and the first-derivative  `f'(x)`. The algorithm follows: `` x^{n+1} = x^n - f(x^n)/f'(x^n) `` until `` |x^{n+1} - x^n|`` is below the tolerance level.
+ 
 ...
 # Arguments
 - `f(x)::Function`: the function you are trying to solve.
-- `f'(x)::Function`: the first derivative of the function you are trying to solve. If it is not given the program estimated `f'(x)` via ForwardDiff.
+- `f'(x)::Function`: the first derivative of the function you are trying to solve. If it is not given the program estimate `f'(x)` using ForwardDiff.
 - `x0::Float64`: the initial value for the algorithm. The default value is 0.8.
-- `tolerance::Float64` : the minimimum tolerance for the algorithm to converge. The default value is 1.0e-13.
+- `tolerance::Float64` : the minimum tolerance for the algorithm to converge. The default value is 1.0e-13.
 - `maxiter::Int64`: the maximum number of iterations allowed. The default value is 1000.
 ---
 # Examples
-```julia
+```julia-repl
 julia> f(x)  =  (x - 2)^2
 f (generic function with 1 method)
 
@@ -27,6 +27,9 @@ julia> newtonroot(f,df)
 
 julia> a = newtonroot(f)[1]
 1.9999999999999318
+
+julia> newtonroot(f)[1] ≈ 2
+true
 ```
 ...
 
