@@ -1,7 +1,7 @@
 
 """
 newtonroot(f[, f']; x0 = 0.8, tolerance = 1.e-13, maxiter = 1000)
-This function find the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with    Starting with an $ x_0 $ guess, a function $ f(\cdot) $ and the first-derivative $ f'(\cdot) $, the algorithm is to repeat
+This function find the local root of a univariate smooth function `f(x)` using the Newton's Method. This method starts with    Starting with an $$ x_0 $$ guess, a function $$ f(\cdot) $$ and the first-derivative $$ f'(\cdot) $$, the algorithm is to repeat
 
     $$
     x^{n+1} = x^n - \frac{f(x^n)}{f'(x^n)}
