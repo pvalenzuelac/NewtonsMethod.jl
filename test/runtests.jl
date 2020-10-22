@@ -67,6 +67,8 @@ using Test
     df(x) = 2(x - 2)
     @test BigFloat(NewtonsMethod.newtonroot(f, df)[1]) ≈ 2.0
     @test BigFloat(NewtonsMethod.newtonroot(f; tolerance=1e-13)[1]) ≈ 2.0
+    @test NewtonsMethod.newtonroot(f; x0=BigFloat(0.8))[1] ≈ 2.0
+    @test typeof(newtonroot(f; x0=BigFloat(0.8))[1]) === BigFloat
 
     # Breaking something on purpose: I present the result in the README.md
     # f(x)  =  (x - 2)^2
